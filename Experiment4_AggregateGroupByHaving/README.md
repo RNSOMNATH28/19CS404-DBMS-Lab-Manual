@@ -38,124 +38,141 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
+How many prescriptions were written in each frequency category (e.g., once daily, twice daily)?
 
 ```sql
--- Paste your SQL code below for Question 1
+select Frequency,COUNT(*) AS TotalPrescriptions
+from Prescriptions
+GROUP BY Frequency
+
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="793" height="532" alt="image" src="https://github.com/user-attachments/assets/1e57713e-58b6-4fd5-907d-bbaef72ea339" />
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write a SQL Query to find how many medications are prescribed for each patient?
 
 ```sql
--- Paste your SQL code below for Question 2
+select PatientID,count(Medications) as AvgMedications from MedicalRecords group by PatientID;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="688" height="612" alt="image" src="https://github.com/user-attachments/assets/eef05d4f-1830-42a9-8de3-afa116075fbd" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+How many prescriptions were written by each doctor?
 
 ```sql
--- Paste your SQL code below for Question 3
+select DoctorID,count(*) as TotalPrescriptions from Prescriptions group by DoctorID;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="726" height="755" alt="image" src="https://github.com/user-attachments/assets/b8b84725-b23d-4688-ae05-19ea5cee9841" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query to find the shortest email address in the customer table?
 
 ```sql
--- Paste your SQL code below for Question 4
+select name,
+        email,
+        length(email) as min_email_length
+from 
+    customer
+order by
+    length(email) asc
+limit 1;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1023" height="317" alt="image" src="https://github.com/user-attachments/assets/08b7c9db-cd4f-49df-9f12-f3306c2b6eb2" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to determine the number of customers who received at least one grade for their activity.
 
 ```sql
--- Paste your SQL code below for Question 5
+select count(*) as COUNT from customer where grade is not null;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="425" height="315" alt="image" src="https://github.com/user-attachments/assets/4c51e9a5-70c6-4144-9045-1cbcbf6ac1c3" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to find  how many employees work in California?
 
 ```sql
--- Paste your SQL code below for Question 6
+SELECT COUNT(*) AS employees_in_california from employee where city='California';
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="644" height="316" alt="image" src="https://github.com/user-attachments/assets/d091d670-e3fd-45b4-ae60-49a9d07d3efc" />
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to Calculate the average income of the employees with names starting with 'A': 
 
 ```sql
--- Paste your SQL code below for Question 7
-```
+select avg(income) as avg_income from employee where name like 'A%';```
 
 **Output:**
 
-![Output7](output.png)
+<img width="405" height="319" alt="image" src="https://github.com/user-attachments/assets/4edd59fd-a6e5-418f-878a-ec61487b1c5d" />
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write the SQL query that accomplishes the selection of total cost of all products in each category from the "products" table and includes only those products where the total cost is greater than 50.
 
 ```sql
--- Paste your SQL code below for Question 8
-```
+SELECT category_id,
+sum(price) as Total_Cost from products
+group by category_id
+having sum(price)>50;```
 
 **Output:**
 
-![Output8](output.png)
+<img width="637" height="339" alt="image" src="https://github.com/user-attachments/assets/429b598c-ce59-4753-87c0-8cfd554af94d" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+Which cities (addresses) in the "customer1" table have an average salary lesser than Rs. 15000
 
 ```sql
--- Paste your SQL code below for Question 9
+select address,AVG(salary) from customer1  group by address having avg(salary)<15000;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="679" height="607" alt="image" src="https://github.com/user-attachments/assets/f69dbb35-710d-4903-9a43-9ed67411f9e9" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write the SQL query that achieves the grouping of data by city, calculates the average income for each city, and includes only those cities where the average income is greater than 500,000
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT city,AVG(income)  from employee group by city having AVG(income)>500000;
 ```
 
 **Output:**
 
-![Output10](output.png)
-
+<img width="604" height="437" alt="image" src="https://github.com/user-attachments/assets/5517899a-cd54-4614-81d0-b7a3697f99ec" />
+## Completion status:
+<img width="623" height="186" alt="image" src="https://github.com/user-attachments/assets/59b1e026-e932-49e7-ba63-99b3c63a3f3b" />
 
 ## RESULT
 Thus, the SQL queries to implement aggregate functions, GROUP BY, and HAVING clause have been executed successfully.
